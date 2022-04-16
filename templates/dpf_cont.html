@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body style="background-color:  #282C35; color: aliceblue;">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light py-4">
+    <a class="navbar-brand mb-0 h1" style="font-size: 180%;" href="#">Diabetes.co</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="  collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active px-3" style="font-size: 120%;" href="/">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link px-3" style="font-size: 120%;" href="/location">Predictor</a>
+        <a class="nav-item nav-link px-3" style="font-size: 120%;" href="/sibling">DPF Calculator</a>
+        
+      </div>
+    </div>
+  </nav>
+    <div class="container mt-5">
+      <form action="/familyhistory_cont" method="POST">
+        <div>
+          <h1 style="text-align: center;margin-bottom: 3%;">Parental History</h1>
+          <div class="row" >
+            <div class="col-6">
+              <h3 style="text-align: center;">Mother</h3>
+            </div>
+            <div class="col-6">
+                <div class="col-6">
+                    <h3 style="text-align: center;">Father</h3>
+                  </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group row">
+                <label for="age_diagnosed_m" class="col-sm-4 col-form-label">If Yes , Then at what age was it found</label>
+                <div class="col-sm-5">
+                  <input type="integer" class="form-control" id="age" name="age_diagnosed_m" placeholder="Diagnosed Age">
+                  <small>If Don't know,enter current age </small>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group row">
+                <label for="age_diagnosed_f" class="col-sm-4 col-form-label">If Yes , Then at what age was it found</label>
+                <div class="col-sm-5">
+                  <input type="integer" class="form-control" id="age" name="age_diagnosed_f" placeholder="Diagnosed Age">
+                  <small>If Don't know,enter current age </small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group row">
+                <label for="age_m" class="col-sm-4 col-form-label">If No , Enter current age</label>
+                <div class="col-sm-5">
+                  <input type="integer" class="form-control" id="age" name="age_m" placeholder="Diagnosed Age">
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group row">
+                <label for="age_f" class="col-sm-4 col-form-label">If No , Enter Current age</label>
+                <div class="col-sm-5">
+                  <input type="integer" class="form-control" id="age" name="age_f" placeholder="Diagnosed Age">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+          <h1 style="text-align: center;margin-top: 2%; margin-bottom: 3%;">GrandParents History</h1>
+          <div class="row">
+            <div class="col-6">
+                <div class="col-6">
+                    <h3 style="text-align: center;">Grandmother</h3>
+                  </div>
+            </div>
+            <div class="col-6">
+                <div class="col-6">
+                    <h3 style="text-align: center;">Grandfather</h3>
+                  </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group row">
+                <label for="age_diagnosed_gm" class="col-sm-4 col-form-label">If Yes , Then at what age was it found</label>
+                <div class="col-sm-5">
+                  <input type="integer" class="form-control" id="age" name="age_diagnosed_gm" placeholder="Diagnosed Age">
+                  <small>If Don't know,enter current age </small>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group row">
+                <label for="age_diagnosed_gf" class="col-sm-4 col-form-label">If Yes , Then at what age was it found</label>
+                <div class="col-sm-5">
+                  <input type="integer" class="form-control" id="age" name="age_diagnosed_gf" placeholder="Diagnosed Age">
+                  <small>If Don't know,enter current age </small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <div class="form-group row">
+                <label for="age_gm" class="col-sm-4 col-form-label">If No , Enter current age</label>
+                <div class="col-sm-5">
+                  <input type="integer" class="form-control" id="age" name="age_gm" placeholder=" Age">
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="form-group row">
+                <label for="age_gf" class="col-sm-4 col-form-label">If No , Enter Current age</label>
+                <div class="col-sm-5">
+                  <input type="integer" class="form-control" id="age" name="age_gf" placeholder=" Age">
+                </div>
+              </div>
+            </div>
+          </div>
+          <h1 style="text-align: center;margin-top: 2%;margin-bottom: 3%;">Sibling History</h1>
+          {% if siblings == 0%}
+          <center><h5>No siblings in the family</h5></center>
+          {% else %}
+          {% for sibling in range(siblings)%}
+          
+            
+              <h3 style="text-align: center;margin-top: 2%;">Sibling {{sibling}}</h3>
+
+              
+              <div class="form-group row">
+                <label for="age_diagnosed_s{{sibling}}" class="col-sm-3 col-form-label"> If yes, then at what age was it found</label>
+                <div class="col-sm-9">
+                  <input type="integer" class="form-control" id="inputPassword" name="age_diagnosed_s{{sibling}}" placeholder="Diagnosed Age">
+                  <small>If dont know, enter Age</small>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="age_s{{sibling}}" class="col-sm-3 col-form-label"> If No, enter current Age</label>
+                <div class="col-sm-9">
+                  <input type="integer" class="form-control" id="inputPassword" name="age_s{{sibling}}" placeholder="Age">
+                  
+                </div>
+              </div>
+              
+            {% endfor %}
+            {%endif%}
+          <p></p>
+
+          <button class="btn btn-primary btn-lg" style="margin-top: 2%;margin-left: 33vw;" type="submit">Enter</button>
+      </form>
+    </div>
+    <div style="margin-top: 5%;">
+      <footer class="text-center text-white" style="background-color: #0a4275;">
+        <div class="container p-4 pb-0">
+          <section class="">
+            <p class="d-flex justify-content-center align-items-center">
+              <span class="me-3">Contact us: </span>
+              <span class="me-3"> adityapal0807@gmail.com </span>
+            </p>
+            <p>To know More about the ML model <a href="/model">Click Here</a></p>
+          </section>
+        </div>
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+          © 2022 Copyright:
+          <a class="text-white" href="/">yourdiabetespredictor.tk</a>
+        </div>
+      </footer>
+    </div>   
+        
+       
+</body>
+</html>

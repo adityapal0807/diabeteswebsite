@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body style="background-color:  #282C35; color: #282C35;">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light py-4">
+    <a class="navbar-brand mb-0 h1" style="font-size: 150%;" href="/">YourDiabetesPredictor</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active px-3" style="font-size: 120%;" href="/">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link px-3" style="font-size: 120%;" href="/location">Predictor</a>
+        <a class="nav-item nav-link px-3" style="font-size: 120%;" href="/sibling">DPF Calculator</a>
+        
+      </div>
+    </div>
+  </nav>
+  
+    <h1 style="text-align: center; color: #EAE7DC;margin-top: 2%;">Diabetes Predictor</h1>
+  
+    <div class="container" style="text-align: center; background-color: #f2eee2;">
+      
+      <h3 style="margin-top: 5%;">Enter the details</h3>
+      <form action="/form" method="POST" style="margin-left: 15vw;">  
+        <div class="form-group row" style="margin-top: 5%;">
+          <label for="staticEmail" class="col-sm-3 col-form-label" ><h5>Name</h5></label>
+          <div class="col-sm-5">
+            <input type="text" class="form-control" name = "name_input" id="staticEmail" placeholder="Enter your Name" required>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="inputPassword" class="col-sm-3 col-form-label"><h5>Sex</h5></label>
+          <div class="col-sm-5">
+            <select class="form-control" name="sex_input" id="exampleFormControlSelect1">
+              <option>Male</option>
+              <option>Female</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="staticEmail" class="col-sm-3 col-form-label"><h5>Number of Pregnancies</h5></label>
+          <div class="col-sm-5">
+            <input type="integer" class="form-control" id="staticEmail" placeholder="Enter the number of Pregnancies" name="pregnancy_input">
+            <small>
+              <ul>
+                <li style="text-align: left;">If Female, this column is required</li>
+                <li style="text-align: left;">If Male, this column is not required</li>
+              </ul>
+            </small>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="staticEmail" class="col-sm-3 col-form-label"><h5>Glucose level</h5></label>
+          <div class="col-sm-5">
+            <input type="integer" class="form-control" id="staticEmail" placeholder="Enter the glucose level" name="glucose_input" required>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="staticEmail" class="col-sm-3 col-form-label"><h5>Blood Pressure</h5></label>
+          <div class="col-sm-5">
+            <input type="integer" class="form-control" id="staticEmail" placeholder="Enter your current Blood Pressure" name="bp_input" required>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="staticEmail" class="col-sm-3 col-form-label"><h5>Skin Thickness</h5></label>
+          <div class="col-sm-5">
+            <input type="integer" class="form-control" id="staticEmail" placeholder="Enter your skin thickness" name="skin_input" required>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="staticEmail" class="col-sm-3 col-form-label"><h5>Insulin level</h5></label>
+          <div class="col-sm-5">
+            <input type="integer" class="form-control" id="staticEmail" placeholder="Enter your insulin level" name="insulin_input" required>
+            <small>
+              <ul>
+                <li style="text-align: left;">Insulin levels can't be checked at home</li>
+                <li style="text-align: left;">To get an effective prediction, get a insulin level test done.</li>
+                <li style="text-align: left;">To get a rough prediction, you can enter glucose levels.</li>
+              </ul>
+            </small>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="staticEmail" class="col-sm-3 col-form-label"><h5>BMI</h5></label>
+          <div class="col-sm-5">
+            <input type="integer" class="form-control" id="staticEmail" name="bmi_input" placeholder="Enter your current BMI" required>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="staticEmail" class="col-sm-3 col-form-label"><h5>Diabetes Pedigree Function</h5></label>
+          <div class="col-sm-5">
+            <input type="integer" class="form-control" id="staticEmail" name="dbf_input" placeholder="Enter the DPF score" required>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="staticEmail" class="col-sm-3 col-form-label"><h5>Age</h5></label>
+          <div class="col-sm-5">
+            <input type="integer" class="form-control" id="staticEmail" name="age_input" placeholder="Enter your age" required>
+          </div>
+        </div>
+        <div style="margin-right: 20%;margin-top: 4%;margin-bottom: 5%;">
+          <button class="btn btn-primary btn-lg" style="padding: 2% 8%;margin-bottom: 5%;" type="submit">Enter</button>
+        </div>
+        
+      </form>
+      
+    </div>
+    <div class="container mt-5">  
+      <div class="row">
+        <div class="col">
+          <div class="card" style="width: 21rem;">
+            <img class="card-img-top" src="/static/pregnancy.jpg" style="width: auto;height: 210px;" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Pregnancy</h5>
+              <p class="card-text">During pregnancy, your placenta makes hormones that cause glucose to build up in your blood. Usually, your pancreas can send out enough insulin to handle it. But if your body can't make enough insulin or stops using insulin as it should, your blood sugar levels rise, and you get gestational diabetes. </p>
+              <p>A normal pregnancy lasts for about 280 days or 40 weeks.</p>
+              <a href="https://www.cdc.gov/diabetes/basics/gestational.html#:~:text=Gestational%20diabetes%20is%20a%20type,pregnancy%20and%20a%20healthy%20baby." class="btn btn-primary">Know More</a>
+            </div>
+          </div>
+        </div>
+        <div class="col"><div class="card" style="width: 21rem;">
+          <img class="card-img-top" src="/static/image6.jpg" style="width: auto;height: 210px;" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Insulin Level</h5>
+            <p class="card-text">Insulin is a hormone that lowers the level of glucose (a type of sugar) in the blood.When blood glucose, also called blood sugar, levels rise after you eat, your pancreas releases insulin into the blood. Insulin then lowers blood glucose to keep it in the normal range.</p>
+            <p>A blood sugar level less than 140 mg/dL is normal. A reading of more than 200 mg/dL  after two hours indicates diabetes. </p>
+            <p></p>
+            <a href="https://www.cdc.gov/diabetes/basics/insulin-resistance.html" class="btn btn-primary">Know More</a>
+          </div>
+        </div></div>
+        <div class="col">
+          <div class="card" style="width: 21rem;">
+            <img class="card-img-top" src="/static/bp.jpg" style="height: 210px;width: auto;" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Blood Pressure</h5>
+              <p class="card-text">Blood pressure is the pressure of blood pushing against the walls of your arteries.
+                Having hypertension appears to increase the risk of type 2 diabetes, and having type 2 diabetes increases the risk of hypertension.
+              </p>
+              <p>In fact, a person with diabetes and high blood pressure is four times as likely to develop heart disease than someone who does not have either of the conditions. </p>              
+              <a href="https://www.hopkinsmedicine.org/health/conditions-and-diseases/diabetes/diabetes-and-high-blood-pressure#:~:text=In%20fact%2C%20a%20person%20with,use%20prescription%20medications%20for%20hypertension." class="btn btn-primary">Know More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col"><div class="card" style="width: 21rem;">
+          <img class="card-img-top" src="/static/skin.jpg" style="width: auto;height: 210px;" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Skin Thickness</h5>
+            <p class="card-text">Skin thickness (epidermal surface to dermal fat inter- face), which is primarily determined by collagen con- tent, is greater in insulin-dependent diabetes mellitus (IDDM) patients who have been diabetic for >10 yr (11,12).</p>
+            <p>Of all skinfold measurements, the triceps skinfold is the most reliable one to assess, because oedema is not often seen in the upper arm.This possibly reflects increased collagen crosslinkage and reduced collagen turnover.</p>
+            <a  href="https://www.youtube.com/watch?v=pARYB0XnluY">How to Measure Skin Fold</a>
+            <p></p>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/2721339/#:~:text=Skin%20thickness%20is%20primarily%20determined,presence%20of%20certain%20diabetic%20complications." class="btn btn-primary">Know More</a>
+          </div>
+        </div></div>
+        <div class="col">
+          <div class="card" style="width: 21rem;">
+          <img class="card-img-top" src="/static/glucose.jpg" style="width: auto;height: 210px;" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Glucose level</h5>
+            <p class="card-text">A blood glucose test is a blood test that screens for diabetes by measuring the level of glucose (sugar) in a person’s blood.The amount of glucose (“sugar”, measured in mg/dL) in your blood changes throughout the day and night. </p>
+            <p>A blood sugar level less than 140 mg/dL (7.8 mmol/L) is normal. A reading of more than 200 mg/dL (11.1 mmol/L) after two hours indicates diabetes.</p>
+            <a href="https://www.youtube.com/watch?v=NUskHl7APHE&t=2s" style="margin-bottom: 2%;">How to check Glucose Level at home</a>
+            <p></p>
+            <a href="https://www.mayoclinic.org/diseases-conditions/diabetes/diagnosis-treatment/drc-20371451#:~:text=A%20fasting%20blood%20sugar%20level,separate%20tests%2C%20you%20have%20diabetes." class="btn btn-primary" style="margin-bottom: 2%;margin-top: 14%;">Know More</a>
+          </div>
+        </div>
+      </div>
+        
+        <div class="col"><div class="card" style="width: 21rem;">
+          <img class="card-img-top" src="/static/bmi.jpg" style="width: auto;height: 210px;" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">BMI</h5>
+            <p class="card-text">Body Mass Index (BMI) is a person’s weight in kilograms divided by the square of height in meters. A high BMI can indicate high body fatness. </p>
+            <p>Being overweight (BMI of 25-29.9), or affected by obesity (BMI of 30-39.9) or morbid obesity (BMI of 40 or greater), greatly increases your risk of developing type 2 diabetes. The more excess weight you have, the more resistant your muscle and tissue cells become to your own insulin hormone.</p>
+            <a href="https://www.calculator.net/bmi-calculator.html">Calculate your BMI</a>
+            <p></p>
+            <a href="https://www.cdc.gov/healthyweight/assessing/bmi/index.html" class="btn btn-primary">Know More</a>
+          </div>
+        </div></div>
+      </div>
+      <div class="row mt-5">
+        <div class="col-3">
+          <p></p>
+        </div>
+        <div class="col">
+          <div class="card" style="width: 28rem;">
+          <img class="card-img-top" src="/static/dpf.jpg" style="height: 210px;width: auto;" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">Diabetes Pedigree Function</h5>
+            <p class="card-text">The Diabetes Pedigree Function is function that scores the likelihood of diabetes based on the family history.</p>
+            <p>The DPF uses information from parents , grandparents and siblings.It provides the genetic influence of affected and unaffected reletives on the subject risk of getting diabetes.</p>
+            <a href="/sibling"> To calculate dpf , click here</a>
+            <p></p>
+            <a href="/sibling" class="btn btn-primary">Know More</a>
+          </div>
+        </div></div>
+      </div>
+    </div>
+    <div style="margin-top: 5%;">
+    <footer class="text-center text-white" style="background-color: #0a4275;">
+      <div class="container p-4 pb-0">
+        <section class="">
+          <p class="d-flex justify-content-center align-items-center">
+            <span class="me-3">Contact Us : </span>
+            <span class="me-3"> adityapal0807@gmail.com </span>
+          </p>
+          <p>To know More about the ML model <a href="/model">Click Here</a></p>
+        </section>
+      </div>
+      <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2022 Copyright:
+        <a class="text-white" href="/">yourdiabetespredictor.tk</a>
+      </div>
+    </footer>
+  </div>
+    
+    
+</body>
+</html></html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light py-4">
+        <a class="navbar-brand mb-0 h1" style="font-size: 150%;" href="/">YourDiabetesPredictor</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-item nav-link active px-3" style="font-size: 120%;" href="/">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link px-3" style="font-size: 120%;" href="/location">Predictor</a>
+            <a class="nav-item nav-link px-3" style="font-size: 120%;" href="/sibling">DPF Calculator</a>
+            
+          </div>
+        </div>
+      </nav>
+      <div class="container mt-5">
+        <h1 style="text-align: center;">Diabetes Predictor ML Model</h1>
+        <div class="container mt-5">
+          <h3>Introduction</h3>
+           <ul style="list-style-type: none;">
+            <li>The global disease burden of diabetes increased greatly from 1990 to 2017 .Diabetes mellitus is a leading cause of mortality and reduced life expectancy.The global prevalence of diabetes increased from 211.2 million (196.0–228.5) in 1990 to 476.0 million (436.6–522.8) in 2017, with a 129.7% increase.
+              Global deaths due to diabetes increased from 0.61 million (0.59–0.62) in 1990 to 1.37 million (1.34–1.40) in 2017, with a 125.5% increase.
+            </li>
+            <li>This is a project made for exploration and predicting whether a person can have diabetes or not.This is an Machine Learning Predictive Model for which i have used RandomForestRegressor method. A random forest is a meta estimator that fits a number of classifying decision trees on various sub-samples of the dataset and uses averaging to improve the predictive accuracy and control over-fitting.
+              The reason for choosing RFR method and its advantages is further explained in testing and training.
+            </li>
+          </ul>
+          <h3>Dataset</h3>
+          <ul style="list-style: none;">
+            <li>
+              There was a research conducted on the Pima Indians community near Pheonix, Arizona. The population was under continues study since 1965 by the <a href="https://www.niddk.nih.gov/">National Institute of Diabetes and Digestive and Kidney Diseases</a> because of the high instance of diabetes only in that particular community.
+              Eight parameters were selected for the research which included
+            </li>
+          </ul>
+          <h3>Parameters</h3>
+          <ul>
+            <li>Pregnancies</li>
+            <li>Glucose Level</li>
+            <li>Blood Pressure</li>
+            <li>Skin Thickness</li>
+            <li>Insulin Level</li>
+            <li>Bmi</li>
+            <li>Diabetes Pedigree Function</li>
+            <li>Age</li>
+            <li style="list-style: none;">
+              While interpreting the Ml model by analysing the weights of the parameters, the following conclusions were found
+              <ol>
+                <li>Parameters like Glucose Level, BMI, Pregnancies, Diabetes Pedigree Function and Age were found directly proportional to the chances of having diabetes.</li>
+                <li>Whereas parameters like Skin Thickness, Insulin Level, and Blood Pressure were found inversely proportional to chances of having diabetes.</li>
+              </ol>
+            </li>
+          </ul>
+          <h3>The Region Parameter</h3>
+          <ul style="list-style: none;">
+              <li>The diabetes condition is not constant throughout the world. Different locations, Different epitite and Different enviornments may alter the chances of getting diabeties.</li>
+              <li>For Example , Asia and America have highest prevelence number, thus we can say people belonging to those regions may have higher chances of getting diabetes.
+                Whereas regions like Greenland have the lowest prevelence number and thus people belonging to those regions have the lowest chances of getting diabetes.
+              </li>
+              <li>To know more about this <a href="https://www.nature.com/articles/s41598-020-71908-9#).">Click Here</a></li>
+              <li>Here is a photo depicting the prevelence number of diabetes throughout the world.</li>
+              <li><img src="/static/world_prevelance.png" style="height: 100%; width: 100%;" alt=""></li>
+              <small style="text-align: end;">original copyright belongs to <a href="https://www.nature.com">nature.com</a></small>
+              <h6>Thus for every country belonging to these regions , i have made a small addition in the final percentage based on the region.</h6>
+            </ul>
+            <h3 style="margin-top: 5%;">Conclusion and Result</h3>
+            <ul style="list-style: none;">
+              <li>This is only a predictive model and works though a machine learning model designed by me. There is no guarantee that the prediction may be 100 percent correct. But these predictions may give you a rough estimate on your chances of getting diabetes.</li>
+            </ul>
+            
+            <h3>Model Working</h3>
+            <ul style="list-style-type: none;">
+              <li>The model is firstly sorted on the basis of gender cause the survey has a high proportion of women.
+                <ul>
+                  <li>For males, the model is constructed without the pregnancy as a parameter and due to less parameters, the model is less predictable.</li>
+                  <li>For females, the model is constructed with the pregnancy as a parameter and thus predictions for females are more predictable.</li>
+                </ul>
+              </li>
+              <li>Predictions above 85 percent are considered to be as high, between 75 and 85 are termed to be as average and below 75 are termed to be low.</li>
+              <li style="margin-top: 2%;">The model uses the random regressor model and make predictions based on the inputs and giving a special weightage to the region parameter and adding it to the end.</li>
+            </ul>
+            
+            <h3>References</h3>
+            <ul>
+              <li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2245318/?page=1">https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2245318/?page=1</a></li>
+              <li><a href="https://www.nature.com/articles/s41598-020-71908-9#">https://www.nature.com/articles/s41598-020-71908-9#</a></li>
+              <li><a href="https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database">https://www.kaggle.com/datasets/uciml/pima-indians-diabetes-database</a></li>
+              <li><a href="https://www.who.int/news-room/fact-sheets/detail/diabetes">https://www.who.int/news-room/fact-sheets/detail/diabetes</a></li>
+              <li><a href="https://www.niddk.nih.gov/">National Institute of Diabetes and Digestive and Kidney Diseases</a></li>
+              
+            </ul>
+            
+        </div>
+      </div>
+      <div style="margin-top: 5%;">
+        <footer class="text-center text-white" style="background-color: #0a4275;">
+          <div class="container p-4 pb-0">
+            <section class="">
+              <p class="d-flex justify-content-center align-items-center">
+                <span class="me-3">Contact Us : </span>
+                <span class="me-3"> adityapal0807@gmail.com </span>
+              </p>
+              <p>To know More about the ML model <a href="/model">Click Here</a></p>
+            </section>
+          </div>
+          <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2022 Copyright:
+            <a class="text-white" href="/">yourdiabetespredictor.tk</a>
+          </div>
+        </footer>
+      </div>
+        
+    
+</body>
+</html>

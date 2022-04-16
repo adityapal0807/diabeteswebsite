@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+      :root{
+        --percent: {{result}}%
+      }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light py-4">
+    <a class="navbar-brand mb-0 h1" style="font-size: 150%;" href="/">YourDiabetesPredictor</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active px-3" style="font-size: 120%;" href="/">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-item nav-link px-3" style="font-size: 120%;" href="/location">Predictor</a>
+        <a class="nav-item nav-link px-3" style="font-size: 120%;" href="/sibling">DPF Calculator</a>
+        
+      </div>
+    </div>
+  </nav>
+      <div class="container">
+        <div class="row">
+          <div class="col-7">
+            <div style="margin-top: 15%;">
+              {% if sex == "Male"%}
+              <h2>Hello Mr {{name}}</h2>
+              {% else %}
+              <h2>Hello Ms {{name}}</h2>
+              {%endif%}
+            <h5  style="margin-top: 5%;">According to our models, , it shows that there is {{result}}% probability that you may be suffering from diabetes.</h5>
+            <h6 style="margin-top: 5%;">Here the model prediction is {{model_prob}}%</h6>
+            <h6 style="margin-top: 3%;">An additional prediction of {{location_weight}}% is added based on your location ie. {{country}}</h6>
+            <p  style="margin-top: 3%;color: red;">But due to some limitations we can't predict that if you have Type 1 or Type 2 Diabetes.</p>
+            <p style="color: red;">We repeat that these predictions are made by a ML model and need not necessarily be true.</p>    
+          </div>
+            </div>
+          <div class="col-5" >
+            <p style="font-size: 200px;">{{result_brand}}%</p>
+          </div> 
+          </div>
+          <div class="progress-l" style="background-color: black;border-radius: 3%;">
+            <div class="progress-bar" role="progressbar" aria-valuenow="{{result}}"
+            aria-valuemin="0" aria-valuemax="100" style="width:var(--percent)">
+              {{result}}%
+            </div>
+          </div>
+        </div>
+        <div class="container mt-5" >
+          <h1 style="text-align: center;">
+            What to do now?
+          </h1>
+          {% if result >= 85 %}
+          <h2>As your chances of getting diabetes are very <span style="color: rgb(233, 76, 76);">HIGH</span> , you can take the following steps:</h2>
+          <ol>
+            <li>
+              <h3>Consult a doctor</h3>
+              <ul style="list-style-type: none;">
+              <li>The most common specialists in the field of diabetes are endocrinologists.</li>
+              <li>Endocrinologists specialize in hormonal issues and the glands that produce these hormones.</li>
+              <li>People with type 1 diabetes usually remain under the care of an endocrinologist for most of their medical care. People with type 2 diabetes will also need to see an endocrinologist.</li>
+              </ul>
+            </li>
+            <li>
+              <h3>Take an A1C test</h3>
+              <ul>
+                <li>The A1C test is a blood test that provides information about your average levels of blood glucose, also called blood sugar, over the past 3 months. The A1C test can be used to diagnose type 2 diabetes and prediabetes. The A1C test is also the primary test used for diabetes management.</li>
+              </ul>
+            </li>
+            <li>
+              <h3>Lifestyle Changes</h3>
+              <ul style="list-style-type: none;">
+                <li>Lifestyle changes can help prevent the onset of type 2 diabetes, the most common form of the disease. Prevention is especially important if you're currently at an increased risk of type 2 diabetes because of excess weight or obesity, high cholesterol, or a family history of diabetes.</li>
+                <ol>
+                  <li>
+                    <h5>Lose extra weight</h5>
+                    <ul style="list-style-type: none;">
+                    <li>Losing weight reduces the risk of diabetes. People in one large study reduced their risk of developing diabetes by almost 60% after losing approximately 7% of their body weight with changes in exercise and diet.</li>
+                      <li>The American Diabetes Association recommends that people with prediabetes lose at least 7% to 10% of their body weight to prevent disease progression. More weight loss will translate into even greater benefits.</li>
+                      <li>Set a weight-loss goal based on your current body weight. Talk to your doctor about reasonable short-term goals and expectations, such as a losing 1 to 2 pounds a week.</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <h5>Be more physically active</h5>
+                    <ul style="list-style-type: none;">
+                    <li>There are many benefits to regular physical activity. Exercise can help you:</li>
+                    <ul>
+                      <li>Lose weight</li>
+                      <li>Lower your blood sugar</li>
+                      <li>Boost your sensitivity to insulin — which helps keep your blood sugar within a normal range</li>
+                    </ul>
+                  </ul>
+                  </li>
+                  <li>
+                    <h5>Eat healthy plant foods</h5>
+                    <ul style="list-style-type: none;">
+                    <li>Plants provide vitamins, minerals and carbohydrates in your diet. Carbohydrates include sugars and starches — the energy sources for your body — and fiber. Dietary fiber, also known as roughage or bulk, is the part of plant foods your body can't digest or absorb.</li>
+                      <li>Fiber-rich foods promote weight loss and lower the risk of diabetes. Eat a variety of healthy, fiber-rich foods, which include:</li>
+                      <ul>
+                        <li>Fruits, such as tomatoes, peppers and fruit from trees</li>
+                        <li>Nonstarchy vegetables, such as leafy greens, broccoli and cauliflower</li>
+                        <li>Legumes, such as beans, chickpeas and lentils</li>
+                        <li>Whole grains, such as whole-wheat pasta and bread, whole-grain rice, whole oats, and quinoa</li>
+                      </ul>
+                      <li>The benefits of fiber include:</li>
+                      <ul>
+                        <li>Slowing the absorption of sugars and lowering blood sugar levels</li>
+                        <li>Interfering with the absorption of dietary fat and cholesterol</li>
+                        <li>Managing other risk factors that affect heart health, such as blood pressure and inflammation</li>
+                        <li>Helping you eat less because fiber-rich foods are more filling and energy rich</li>
+                      </ul>
+                    </ul>  
+                  </li>
+                  <li><h5>Eat healthy fats</h5></li>
+                    <ul style="list-style-type: none;">
+                    <li>Fatty foods are high in calories and should be eaten in moderation. To help lose and manage weight, your diet should include a variety of foods with unsaturated fats, sometimes called "good fats."</li>
+                  <li>Unsaturated fats — both monounsaturated and polyunsaturated fats — promote healthy blood cholesterol levels and good heart and vascular health. </li>  
+                  
+                <li>Saturated fats, the "bad fats," are found in dairy products and meats. These should be a small part of your diet. You can limit saturated fats by eating low-fat dairy products and lean chicken and pork.
+                </li>
+              </ul>
+                  </li>
+                  <li>
+                    <h5>Skip fad diets and make healthier choices</h5>
+                    <ul style="list-style-type: none;">
+                    <li>Many fad diets — such as the glycemic index, paleo or keto diets — may help you lose weight. There is little research, however, about the long-term benefits of these diets or their benefit in preventing diabetes.</li>
+                      <li>Your dietary goal should be to lose weight and then maintain a healthier weight moving forward. Healthy dietary decisions, therefore, need to include a strategy that you can maintain as a lifelong habit. Making healthy decisions that reflect some of your own preferences for food and traditions may be beneficial for you over time.</li>
+                      <li>One simple strategy to help you make good food choices and eat appropriate portions sizes is to divide up your plate. </li>
+                    </ul>
+                  </li>
+                </ol>
+              </ul>
+            </li>
+          </ol>
+          {% elif result >= 70 %}
+          <h2>As your chances of getting diabetes are <span style="color: green;">AVERAGE</span>, you can take the following steps:</h2>
+          <ol>
+            <li>
+              <h3>For ensuring , Take an A1C test</h3>
+              <ul>
+                <li>The A1C test is a blood test that provides information about your average levels of blood glucose, also called blood sugar, over the past 3 months. The A1C test can be used to diagnose type 2 diabetes and prediabetes. The A1C test is also the primary test used for diabetes management.</li>
+              </ul>
+            </li>
+            <li>
+              <h3>Lifestyle Changes</h3>
+              <ul style="list-style-type: none;">
+                <li>Lifestyle changes can help prevent the onset of type 2 diabetes, the most common form of the disease. Prevention is especially important if you're currently at an increased risk of type 2 diabetes because of excess weight or obesity, high cholesterol, or a family history of diabetes.</li>
+                <ol>
+                  <li>
+                    <h5>Lose extra weight</h5>
+                    <ul style="list-style-type: none;">
+                    <li>Losing weight reduces the risk of diabetes. People in one large study reduced their risk of developing diabetes by almost 60% after losing approximately 7% of their body weight with changes in exercise and diet.</li>
+                      <li>The American Diabetes Association recommends that people with prediabetes lose at least 7% to 10% of their body weight to prevent disease progression. More weight loss will translate into even greater benefits.</li>
+                      <li>Set a weight-loss goal based on your current body weight. Talk to your doctor about reasonable short-term goals and expectations, such as a losing 1 to 2 pounds a week.</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <h5>Be more physically active</h5>
+                    <ul style="list-style-type: none;">
+                    <li>There are many benefits to regular physical activity. Exercise can help you:</li>
+                    <ul>
+                      <li>Lose weight</li>
+                      <li>Lower your blood sugar</li>
+                      <li>Boost your sensitivity to insulin — which helps keep your blood sugar within a normal range</li>
+                    </ul>
+                  </ul>
+                  </li>
+                  <li>
+                    <h5>Eat healthy plant foods</h5>
+                    <ul style="list-style-type: none;">
+                    <li>Plants provide vitamins, minerals and carbohydrates in your diet. Carbohydrates include sugars and starches — the energy sources for your body — and fiber. Dietary fiber, also known as roughage or bulk, is the part of plant foods your body can't digest or absorb.</li>
+                      <li>Fiber-rich foods promote weight loss and lower the risk of diabetes. Eat a variety of healthy, fiber-rich foods, which include:</li>
+                      <ul>
+                        <li>Fruits, such as tomatoes, peppers and fruit from trees</li>
+                        <li>Nonstarchy vegetables, such as leafy greens, broccoli and cauliflower</li>
+                        <li>Legumes, such as beans, chickpeas and lentils</li>
+                        <li>Whole grains, such as whole-wheat pasta and bread, whole-grain rice, whole oats, and quinoa</li>
+                      </ul>
+                      <li>The benefits of fiber include:</li>
+                      <ul>
+                        <li>Slowing the absorption of sugars and lowering blood sugar levels</li>
+                        <li>Interfering with the absorption of dietary fat and cholesterol</li>
+                        <li>Managing other risk factors that affect heart health, such as blood pressure and inflammation</li>
+                        <li>Helping you eat less because fiber-rich foods are more filling and energy rich</li>
+                      </ul>
+                    </ul>  
+                  </li>
+                  <li><h5>Eat healthy fats</h5></li>
+                    <ul style="list-style-type: none;">
+                    <li>Fatty foods are high in calories and should be eaten in moderation. To help lose and manage weight, your diet should include a variety of foods with unsaturated fats, sometimes called "good fats."</li>
+                  <li>Unsaturated fats — both monounsaturated and polyunsaturated fats — promote healthy blood cholesterol levels and good heart and vascular health. </li>  
+                  
+                <li>Saturated fats, the "bad fats," are found in dairy products and meats. These should be a small part of your diet. You can limit saturated fats by eating low-fat dairy products and lean chicken and pork.
+                </li>
+              </ul>
+                  </li>
+                  <li>
+                    <h5>Skip fad diets and make healthier choices</h5>
+                    <ul style="list-style-type: none;">
+                    <li>Many fad diets — such as the glycemic index, paleo or keto diets — may help you lose weight. There is little research, however, about the long-term benefits of these diets or their benefit in preventing diabetes.</li>
+                      <li>Your dietary goal should be to lose weight and then maintain a healthier weight moving forward. Healthy dietary decisions, therefore, need to include a strategy that you can maintain as a lifelong habit. Making healthy decisions that reflect some of your own preferences for food and traditions may be beneficial for you over time.</li>
+                      <li>One simple strategy to help you make good food choices and eat appropriate portions sizes is to divide up your plate. </li>
+                    </ul>
+                  </li>
+                </ol>
+              </ul>
+            </li>
+          </ol>
+          {%else%}
+          
+          <h2>As your chances of getting Diabetes are very <span style="color: greenyellow;">LOW</span>, you can still take these steps:</h2>
+          <ol>
+            
+            <li>
+              <h3>Lifestyle Changes</h3>
+              <ul style="list-style-type: none;">
+                <li>Lifestyle changes can help prevent the onset of type 2 diabetes, the most common form of the disease. Prevention is especially important if you're currently at an increased risk of type 2 diabetes because of excess weight or obesity, high cholesterol, or a family history of diabetes.</li>
+                <ol>
+                  <li>
+                    <h5>Lose extra weight</h5>
+                    <ul style="list-style-type: none;">
+                    <li>Losing weight reduces the risk of diabetes. People in one large study reduced their risk of developing diabetes by almost 60% after losing approximately 7% of their body weight with changes in exercise and diet.</li>
+                      <li>The American Diabetes Association recommends that people with prediabetes lose at least 7% to 10% of their body weight to prevent disease progression. More weight loss will translate into even greater benefits.</li>
+                      <li>Set a weight-loss goal based on your current body weight. Talk to your doctor about reasonable short-term goals and expectations, such as a losing 1 to 2 pounds a week.</li>
+                    </ul>
+                  </li>
+                  <li>
+                    <h5>Be more physically active</h5>
+                    <ul style="list-style-type: none;">
+                    <li>There are many benefits to regular physical activity. Exercise can help you:</li>
+                    <ul>
+                      <li>Lose weight</li>
+                      <li>Lower your blood sugar</li>
+                      <li>Boost your sensitivity to insulin — which helps keep your blood sugar within a normal range</li>
+                    </ul>
+                  </ul>
+                  </li>
+                  <li>
+                    <h5>Eat healthy plant foods</h5>
+                    <ul style="list-style-type: none;">
+                    <li>Plants provide vitamins, minerals and carbohydrates in your diet. Carbohydrates include sugars and starches — the energy sources for your body — and fiber. Dietary fiber, also known as roughage or bulk, is the part of plant foods your body can't digest or absorb.</li>
+                      <li>Fiber-rich foods promote weight loss and lower the risk of diabetes. Eat a variety of healthy, fiber-rich foods, which include:</li>
+                      <ul>
+                        <li>Fruits, such as tomatoes, peppers and fruit from trees</li>
+                        <li>Nonstarchy vegetables, such as leafy greens, broccoli and cauliflower</li>
+                        <li>Legumes, such as beans, chickpeas and lentils</li>
+                        <li>Whole grains, such as whole-wheat pasta and bread, whole-grain rice, whole oats, and quinoa</li>
+                      </ul>
+                      <li>The benefits of fiber include:</li>
+                      <ul>
+                        <li>Slowing the absorption of sugars and lowering blood sugar levels</li>
+                        <li>Interfering with the absorption of dietary fat and cholesterol</li>
+                        <li>Managing other risk factors that affect heart health, such as blood pressure and inflammation</li>
+                        <li>Helping you eat less because fiber-rich foods are more filling and energy rich</li>
+                      </ul>
+                    </ul>  
+                  </li>
+                  <li><h5>Eat healthy fats</h5></li>
+                    <ul style="list-style-type: none;">
+                    <li>Fatty foods are high in calories and should be eaten in moderation. To help lose and manage weight, your diet should include a variety of foods with unsaturated fats, sometimes called "good fats."</li>
+                  <li>Unsaturated fats — both monounsaturated and polyunsaturated fats — promote healthy blood cholesterol levels and good heart and vascular health. </li>  
+                  
+                <li>Saturated fats, the "bad fats," are found in dairy products and meats. These should be a small part of your diet. You can limit saturated fats by eating low-fat dairy products and lean chicken and pork.
+                </li>
+              </ul>
+                  </li>
+                  <li>
+                    <h5>Skip fad diets and make healthier choices</h5>
+                    <ul style="list-style-type: none;">
+                    <li>Many fat diets — such as the glycemic index, paleo or keto diets — may help you lose weight. There is little research, however, about the long-term benefits of these diets or their benefit in preventing diabetes.</li>
+                      <li>Your dietary goal should be to lose weight and then maintain a healthier weight moving forward. Healthy dietary decisions, therefore, need to include a strategy that you can maintain as a lifelong habit. Making healthy decisions that reflect some of your own preferences for food and traditions may be beneficial for you over time.</li>
+                      <li>One simple strategy to help you make good food choices and eat appropriate portions sizes is to divide up your plate. </li>
+                    </ul>
+                  </li>
+                </ol>
+              </ul>
+            </li>
+          </ol>
+          {%endif%}
+        </div>
+
+        <div style="margin-top: 5%;">
+          <footer class="text-center text-white" style="background-color: #0a4275;">
+            <div class="container p-4 pb-0">
+              <section class="">
+                <p class="d-flex justify-content-center align-items-center">
+                  <span class="me-3">Contact Us : </span>
+                  <span class="me-3"> adityapal0807@gmail.com </span>
+                </p>
+                <p>To know More about the ML model <a href="/model">Click Here</a></p>
+              </section>
+            </div>
+            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+              © 2022 Copyright:
+              <a class="text-white" href="/">yourdiabetespredictor.tk</a>
+            </div>
+          </footer>
+        </div>
+          
+      
+    
+</body>
+</html>
